@@ -12,8 +12,9 @@ am I on the right track? what are the next steps
 
 -----------------
 
-what's wrong with my main function:
+what's wrong with my main function? It's only reading the first word of the input. What function do I use to read the whole line. 
 
+-----------------
 
 help me write the extractIPv4 function
 
