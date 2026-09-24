@@ -64,3 +64,7 @@ would the the ouptut for this: ello there 145.say 2.2.2 be 'Invalid input: no va
 
 ------------------------------------------
 
+
+
+VERIFICATION STATEMENT:
+I understand all the code I've committed. The code has been tested and works as intended. All bugs in the main and extractIPv4 function were resolved. 
