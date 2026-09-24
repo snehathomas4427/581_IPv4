@@ -1,6 +1,5 @@
-### ChatGPT GPT-5.6
-
-## 9/24/2026
+## ChatGPT GPT-5.6
+### 9/24/2026
 
 prompts:
 
