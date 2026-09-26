@@ -72,13 +72,17 @@ would the the ouptut for this: ello there 145.say 2.2.2 be 'Invalid input: no va
 - runTestCases(): AI generated for quick testing purposes (without user input)
 
 **Problem(s) found in the AI output**
+
 The initial AI-generated parser accepted an IPv4 address embedded inside a longer numeric token. I discovered this by testing an input containing a valid-looking address followed immediately by another period. The assignment requires the entire candidate token to be valid, so I modified the parser to reject a candidate when a period or colon is directly adjacent to the address in an invalid position.
 
 **Testing and validation**
+
 Asked AI to create variety of test cases for normal valid IPv4 addresses, ports and octets outside range, missing octets, extra garbage text, and more. Test cases are stored in the test_cases.txt file. 
 
 **Modifications made to eh AI code**
+
 - Changed the validation of leading zeros because the initial implementation allowed values such as 01.2.3.4, which violates the specified grammar.
 
 **VERIFICATION STATEMENT:**
+
 I understand all the code I've committed. The code has been tested and works as intended. All bugs in the main and extractIPv4 function were resolved. 
