@@ -1,9 +1,9 @@
-## ChatGPT GPT-5.6
-### 9/24/2026
+# IPv4 AI Disclosure Document 
+## AI model and version: ChatGPT GPT-5.6
+### Date used: 9/24/2026
 
-prompts:
-
-i am creating a parser that extracts IPv4 Addresses from noisy text. all functions will be in a main.cpp file. it should read a line of text and extract a single valid IPv4 address — optionally followed by a port number — embedded anywhere in that text. Only digits, periods (.), and colons (:) are ever part of a valid token; every other character is garbage and is skipped. A candidate token must match the address grammar in full — no partial matches, no truncating to find a valid piece inside a longer run. An address is four octets separated by periods (octet.octet.octet.octet), each octet 1–3 digits, value 0–255, no leading zero unless the value is exactly 0. An optional :port may follow the fourth octet: 1–5 digits, value 0–65535, same leading-zero rule. If a colon is present, the port must be fully valid or the entire match — address included — is rejected.
+**Prompts:**
+i am creating a parser that extracts IPv4 Addresses from noisy text. all functions will be in a main.cpp file. it should read a line of text and extract a single valid IPv4 address — optionally followed by a port number — embedded anywhere in that text. Only digits, periods (.), and colons (:) are ever part of a valid token; every other character is garbage and is skipped. A candidate token must match the address grammar in full — no partial matches, no truncating to find a valid piece inside a longer run. An address is four octets separated by periods (octet.octet.octet.octet), each octet 1–3 digits, value 0–255. An optional :port may follow the fourth octet: 1–5 digits, value 0–65535. If a colon is present, the port must be fully valid or the entire match — address included — is rejected.
 
 here is what I have so far:
 #include <iostream> using namespace std; int extractIPv4(string ip_addr){ return 0; } int main(){ string val = ""; while(val != "END"){ cout << "Enter a string (or 'END' to quit): "; cin >> val; extractIPv4(val); } cout << "Program terminated."; return 0; }
@@ -52,7 +52,7 @@ Program terminated.
 
 ----------------------------------------
 
-add extra test cases so I can best test my program
+add extra test cases so I can best test my program. Include a variety of test cases from normal valid IPv4 addresses to ports and octets outside range, missing octets, extra garbage text, leading zeros, and more.
 
 -----------------------------------------
 
@@ -64,7 +64,21 @@ would the the ouptut for this: ello there 145.say 2.2.2 be 'Invalid input: no va
 
 ------------------------------------------
 
+**What the AI generated vs. Student:**
+- Initial extractIPv4 implementation: AI generated
+- extractIPv4 conditionals (ex: if (str[i] >= '0' && str[i] <= '9'): Student written
+- Generated 10 extra cases: AI generated
+- main() function: student generated, getline() function correction by AI
+- runTestCases(): AI generated for quick testing purposes (without user input)
 
+**Problem(s) found in the AI output**
+The initial AI-generated parser accepted an IPv4 address embedded inside a longer numeric token. I discovered this by testing an input containing a valid-looking address followed immediately by another period. The assignment requires the entire candidate token to be valid, so I modified the parser to reject a candidate when a period or colon is directly adjacent to the address in an invalid position.
 
-VERIFICATION STATEMENT:
+**Testing and validation**
+Asked AI to create variety of test cases for normal valid IPv4 addresses, ports and octets outside range, missing octets, extra garbage text, and more. Test cases are stored in the test_cases.txt file. 
+
+**Modifications made to eh AI code**
+- Changed the validation of leading zeros because the initial implementation allowed values such as 01.2.3.4, which violates the specified grammar.
+
+**VERIFICATION STATEMENT:**
 I understand all the code I've committed. The code has been tested and works as intended. All bugs in the main and extractIPv4 function were resolved. 
